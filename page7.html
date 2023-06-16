@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>ANCORE PAGE</title>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+   <link rel="stylesheet" href="assets/css/main.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+   <style>
+      /* ... 기존 스타일 코드 ... */
+      /* Header */
+      #header {
+          text-align: center;
+          padding: 3em 0 0 0;
+          background-color: #000; 
+          background-image: url("images/bg02.png"), url("images/bg02.png"), url("images/bg01.png");
+          background-position: top left, top left, top left;
+          background-size: 100% 6em, 100% 6em, auto;
+          background-repeat: no-repeat, no-repeat, repeat;
+      }
+
+      #header h1 {
+          padding: 0 0 1em 0;
+          margin: 0;
+      }
+
+      #header h1 a {
+          font-size: 2em;
+          letter-spacing: -0.025em;
+          color: #fff; 
+          border: 0;
+      }
+
+      #nav {
+          cursor: default;
+          background-color: #000; 
+          background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+          background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+          background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+          background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.3)), url("images/bg01.png");
+          padding: 0;
+      }
+
+      #nav:after {
+          content: '';
+          display: block;
+          width: 100%;
+          height: 0.30em;
+          background-color: #ffadf3;
+      }
+
+      #nav > ul {
+          margin: 0;
+      }
+
+     #nav > ul > li:nth-child(1) a {
+         font-weight: bold;
+         text-decoration: underline;
+      }
+
+      #nav > ul > li {
+          position: relative;
+          display: inline-block;
+          margin-left: 1em;
+      }
+
+      #nav > ul > li a {
+          color: #fff;
+          text-decoration: none;
+          border: 0;
+          display: block;
+          padding: 1.5em 0.5em 1.35em 0.5em;
+      }
+
+      #nav > ul > li:first-child {
+          margin-right: 0em;
+      }
+
+      #nav > ul > li:hover a {
+          color: #fff;
+      }
+
+      #nav > ul > li.current {
+          font-weight: 600;
+      }
+
+      /* Custom CSS */
+      .menu-toggle-container {
+         display: flex;
+         align-items: center;
+         height: 100%;
+      }
+
+      .menu-toggle {
+         display: flex;
+         flex-direction: column-reverse;
+         justify-content: center;
+         align-items: center;
+         width: 40px;
+         height: 40px;
+         background-color: transparent;
+         border: none;
+         cursor: pointer;
+      }
+
+      .menu-toggle .bar {
+         width: 30px;
+         height: 3px;
+         background-color: #ffadf3;
+         margin: 3px 0;
+      }
+
+      .search-box {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         margin-left: auto;
+      }
+
+      .search-box input[type="text"] {
+         width: 200px;
+         padding: 6px;
+         border: none;
+         border-bottom: 1px solid #fff;
+         background-color: transparent;
+         color: #fff;
+         font-size: 16px;
+         margin-right: 10px;
+      }
+
+      .search-box input[type="text"]::placeholder {
+         color: #fff;
+         opacity: 0.5;
+      }
+
+      .search-btn {
+         background-color: transparent;
+         border: none;
+         color: #fff;
+         font-size: 20px;
+         cursor: pointer;
+      }
+
+      #nav ul {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-left: auto;
+      }
+
+      #nav .login-btn,
+      #nav .signup-btn {
+         margin-left: 10px;
+         color: #fff;
+         background-color: transparent;
+         border: none;
+         display: flex;
+         align-items: center;
+      }
+
+      #nav .login-btn i {
+         margin-right: 5px;
+      }
+   </style>
+   <style>
+      body {
+         margin: 0;
+         padding: 0;
+      }
+      
+      header {
+         background-color: #fff;
+         padding: 20px;
+         border-bottom: 1px solid #ccc;
+      }
+      
+      header nav ul li:nth-child(1) a {
+         font-weight: bold;
+         text-decoration: underline;
+         color: #ffadf3;
+      }
+
+      nav ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+      }
+      
+      nav ul li {
+         display: inline;
+         margin-right: 10px;
+      }
+      
+      nav ul li a {
+         text-decoration: none;
+         color: #333;
+         padding: 5px 10px;
+      }
+
+     nav ul li:nth-child(1) a {
+         font-weight: bold;
+         text-decoration: underline;
+         color: #ffadf3;
+      }
+      
+      .search-container {
+         display: flex;
+         align-items: center;
+         justify-content: flex-end;
+         margin-top: 10px;
+      }
+      
+      .search-container input[type="text"] {
+         padding: 5px;
+      }
+      
+       .poster-section {
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         padding: 20px;
+      }
+
+      .poster-container {
+         width: 250px;
+         height: 250px;
+         margin: 10px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         text-align: center;
+      }
+
+      .poster-container img {
+         width: 100%;
+         height: auto;
+         object-fit: contain;
+         margin-bottom: 10px;
+      }
+
+      .caption {
+         font-size: 14px;
+         color: #333;
+         margin-bottom: 10px;
+      }
+
+   </style>
+</head>
+<body class="is-preload">
+
+   </style>
+</head>
+<body class="is-preload">
+   <div id="page-wrapper">
+      <!-- Header -->
+      <div id="header">
+         <!-- Logo -->
+         <h1><a href="index.html" id="logo">ANCORE PAGE</a></h1>
+         <!-- Nav -->
+         <nav id="nav">
+            <div class="menu-toggle-container">
+               <button class="menu-toggle" onclick="toggleMenu()">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+               </button>
+            </div>
+            <ul>
+               <li><a href="concert.html">공연</a></li>
+               <li><a href="reservation.html">예매처</a></li>
+               <li><a href="event.html">이벤트</a></li>
+               <li><a href="community.html">커뮤니티</a></li>
+               <li><a href="calendar.html">캘린더</a></li>
+               <li><a href="rank.html">순위</a></li>
+               <li><a href="concerthall.html">공연장</a></li>
+            </ul>
+            <div class="search-box">
+               <input type="text" placeholder="검색" />
+               <button class="search-btn"><i class="fas fa-search"></i></button>
+               <button class="login-btn"><i class="fas fa-user"></i>로그인</button>
+               <button class="signup-btn">회원가입</button>
+            </div>
+         </nav>
+      </div>
+      <script>
+         function toggleMenu() {
+            document.getElementById("nav").classList.toggle("show");
+         }
+      </script>
+   </div>
+
+   <div class="search-container">
+      <input type="text" placeholder="검색">
+      <button type="submit">검색</button>
+   </div>
+
+  <header>
+   <nav>
+      <ul>
+         <li><a href="#">전체</a></li>
+         <li><a href="#">아이돌</a></li>
+         <li><a href="#">팬클럽/팬미팅</a></li>
+         <li><a href="#">발라드/R&amp;B</a></li>
+         <li><a href="#">힙합/EDM</a></li>
+         <li><a href="#">페스티벌</a></li>
+         <li><a href="#">인디/록</a></li>
+         <li><a href="#">내한</a></li>
+         <li><a href="#">그 외 장르</a></li>
+      </ul>
+   </nav>
+</header>
+
+<nav style="align-self: flex-end;">
+   <ul style="text-align: right;">
+      <li><a href="#">인기순</a></li>
+      <li><a href="#">공연임박순</a></li>
+      <li><a href="#">최신순</a></li>
+   </ul>
+</nav>
+
+
+    <section class="poster-section">
+      <div class="poster-container">
+         <img src="poster1.jpg" alt="Poster 1">
+         <div class="caption">
+            <strong>MAMAMOO WORLD TOUR 〈MY CON〉 ENCORE－SEOUL
+
+</strong><br>
+            2023.06.16 - 2023.06.18<br>
+            올림픽공원 SK올림픽핸드볼경기장
+         </div>
+      </div>
+      <div class="poster-container">
+         <img src="poster2.jpg" alt="Poster 2">
+         <div class="caption">
+            <strong>밀코메다 5회</strong><br>
+            2023.06.11 - 2023.06.11<br>
+            드림홀
+         </div>
+      </div>
+      <div class="poster-container">
+         <img src="poster3.jpg" alt="Poster 3">
+         <div class="caption">
+            <strong>REDSTART BOYS 1st FANMEETING “This time is our turn”
+
+</strong><br>
+            2023.06.10 - 2023.06.11<br>
+            한성대학교 낙산관 대강당
+         </div>
+      </div>
+      <div class="poster-container">
+         <img src="poster4.jpg" alt="Poster 4">
+         <div class="caption">
+            <strong>2023 체리블렛 1ST FANMEETING 〈It’s Cherry Time〉</strong><br>
+            2023.06.17 - 2023.06.17<br>
+            엠팟홀
+         </div>
+      </div>
+   </section>
+</body>
+</html>
